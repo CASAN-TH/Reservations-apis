@@ -19,7 +19,7 @@ services:
       replicas: 1
 
   shops:
-    image: amonratchanthawon/amonrat-service
+    image: cyberadvance/reservations-shops-service
     ports:
       - "3002:3000"
     depends_on:
