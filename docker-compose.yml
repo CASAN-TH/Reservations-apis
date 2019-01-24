@@ -18,6 +18,17 @@ services:
     deploy:
       replicas: 1
 
+  addresss:
+    image: cyberadvance/reservations-address-service
+    ports:
+      - "3003:3000"
+    depends_on:
+      - db
+    environment:
+      - MONGO_DB_URI=mongodb://db/addresss
+    deploy:
+      replicas: 1
+
   shops:
     image: cyberadvance/reservations-shops-service
     ports:
@@ -36,6 +47,7 @@ services:
     depends_on:
       - auth
       - shops
+      - addresss
     deploy:
       replicas: 1  
       
