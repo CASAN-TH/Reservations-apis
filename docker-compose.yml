@@ -30,7 +30,7 @@ services:
       replicas: 1
 
   web:
-    image: amonratchanthawon/shop-apis
+    image: cyberadvance/reservations-gateway-apis
     ports: 
       - "80:80"
     depends_on:
@@ -39,13 +39,3 @@ services:
     deploy:
       replicas: 1  
       
-  # auth:
-  #     image: cyberadvance/authen-service
-  #     ports:
-  #       - "3002:3000"
-  #     depends_on:
-  #       - db
-  #     environment:
-  #       - MONGO_DB_URI=mongodb://db/auth
-  #     deploy:
-  #       replicas: 1
