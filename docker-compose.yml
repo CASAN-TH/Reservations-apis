@@ -29,8 +29,8 @@ services:
     deploy:
       replicas: 1
 
-  queues:
-    image: 
+  queues: 
+    image: cyberadvance/reservations-queue-service
     ports:
       - "3003:3000"
     depends_on:
