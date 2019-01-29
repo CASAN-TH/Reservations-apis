@@ -18,6 +18,17 @@ services:
     deploy:
       replicas: 1
 
+  queues:
+    image: cyberadvance/reservations-queue-service
+    ports:
+      - "3005:3000"
+    depends_on:
+      - db
+    environment:
+      - MONGO_DB_URI=mongodb://db/queues
+    deploy:
+      replicas: 1    
+
   shops:
     image: cyberadvance/reservations-shops-service
     ports:
@@ -36,6 +47,7 @@ services:
     depends_on:
       - auth
       - shops
+      - queues
     deploy:
       replicas: 1  
       
