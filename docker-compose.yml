@@ -47,6 +47,7 @@ services:
     depends_on:
       - auth
       - shops
+      - queues
     deploy:
       replicas: 1  
       
